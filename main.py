@@ -14,7 +14,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from dotenv import load_dotenv
 
-from routers import research, trials, consensus, healthcare
+from routers import research, trials, consensus, healthcare, denials
 
 load_dotenv()
 
@@ -36,6 +36,7 @@ app.include_router(research.router, prefix="/api")
 app.include_router(trials.router, prefix="/api")
 app.include_router(consensus.router, prefix="/api")
 app.include_router(healthcare.router, prefix="/api")
+app.include_router(denials.router, prefix="/api")
 
 
 @app.get("/health")
