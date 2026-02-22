@@ -41,7 +41,7 @@ def fetch_cases(query: str, outcome: str = "won") -> list[dict]:
     url = f"https://www.courtlistener.com/api/rest/v4/search/?q={urllib.parse.quote(search_q)}&type=o&format=json&page_size=5"
     try:
         req = urllib.request.Request(url, headers=_court_headers())
-        with urllib.request.urlopen(req, timeout=10) as r:
+        with urllib.request.urlopen(req, timeout=45) as r:
             data = json.loads(r.read())
         cases = []
         for c in data.get("results", []):
